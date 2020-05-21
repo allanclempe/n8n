@@ -92,7 +92,7 @@ export class Workflow {
 
 		this.staticData = ObservableObject.create(parameters.staticData || {}, undefined, { ignoreEmptyOnFirstChild: true });
 
-		this.startNodeData = parameters.settings || {};
+		this.startNodeData = parameters.startNodeData || {};
 
 		this.settings = parameters.settings || {};
 	}
