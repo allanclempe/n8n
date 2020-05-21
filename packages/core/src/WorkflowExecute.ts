@@ -79,7 +79,7 @@ export class WorkflowExecute {
 					main: [
 						[
 							{
-								json: {},
+								json: workflow.startNodeData || {},
 							},
 						],
 					],

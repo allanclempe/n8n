@@ -53,8 +53,11 @@ export class Workflow {
 	// ids of registred webhooks of nodes
 	staticData: IDataObject;
 
+	// To inject data in the start node.
+	startNodeData: IDataObject;
+
 	// constructor(id: string | undefined, nodes: INode[], connections: IConnections, active: boolean, nodeTypes: INodeTypes, staticData?: IDataObject, settings?: IWorkflowSettings) {
-	constructor(parameters: {id?: string, name?: string, nodes: INode[], connections: IConnections, active: boolean, nodeTypes: INodeTypes, staticData?: IDataObject, settings?: IWorkflowSettings}) {
+	constructor(parameters: {id?: string, name?: string, nodes: INode[], connections: IConnections, active: boolean, nodeTypes: INodeTypes, staticData?: IDataObject, startNodeData?: IDataObject, settings?: IWorkflowSettings}) {
 		this.id = parameters.id;
 		this.name = parameters.name;
 		this.nodeTypes = parameters.nodeTypes;
@@ -88,6 +91,8 @@ export class Workflow {
 		this.active = parameters.active || false;
 
 		this.staticData = ObservableObject.create(parameters.staticData || {}, undefined, { ignoreEmptyOnFirstChild: true });
+
+		this.startNodeData = parameters.settings || {};
 
 		this.settings = parameters.settings || {};
 	}
