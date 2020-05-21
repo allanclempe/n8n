@@ -119,7 +119,7 @@ export class WorkflowRunner {
 
 		const nodeTypes = NodeTypes();
 
-		const workflow = new Workflow({ id: data.workflowData.id as string | undefined, name: data.workflowData.name, nodes: data.workflowData!.nodes, connections: data.workflowData!.connections, active: data.workflowData!.active, nodeTypes, staticData: data.workflowData!.staticData });
+		const workflow = new Workflow({ id: data.workflowData.id as string | undefined, name: data.workflowData.name, nodes: data.workflowData!.nodes, connections: data.workflowData!.connections, active: data.workflowData!.active, nodeTypes, staticData: data.workflowData!.staticData, startNodeData: data!.startNodeData });
 		const additionalData = await WorkflowExecuteAdditionalData.getBase(data.credentials);
 
 		// Register the active execution
